@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const [show, setShow] = useState(false);
@@ -27,24 +27,28 @@ const Navbar = () => {
             <div class={`collapse navbar-collapse ${show ? "show" : ""}`}>
               <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" to="/">
+                  <NavLink
+                    className="nav-link active"
+                    aria-current="page"
+                    to="/"
+                  >
                     Home
-                  </a>
+                  </NavLink>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" to="/service">
+                  <NavLink className="nav-link" to="/service">
                     Services
-                  </a>
+                  </NavLink>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" to="/about">
+                  <NavLink className="nav-link" to="/about">
                     About
-                  </a>
+                  </NavLink>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" to="/contact">
+                  <NavLink className="nav-link" to="/contact">
                     Contact
-                  </a>
+                  </NavLink>
                 </li>
               </ul>
               <form class="d-flex">

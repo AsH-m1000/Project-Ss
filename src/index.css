@@ -11,6 +11,7 @@
 
 :root {
   --bgcolor: #f1f5fd;
+  /* --bgcolor: lightyellow; */
   --primary-color: coral;
   --text-color: #828286;
   --main-text-color: #333333;
