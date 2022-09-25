@@ -1,8 +1,13 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import SignUpPage from "../src/SignUpPage";
 
-const Navbar = () => {
+const Navbar = ({ navigation }) => {
   const [show, setShow] = useState(false);
+  const navigate = useNavigate();
+  const navigateToSignUpPage = () => {
+    navigate("SignUpPage");
+  };
 
   return (
     <>
@@ -52,7 +57,11 @@ const Navbar = () => {
                 </li>
               </ul>
               <form class="d-flex">
-                <button class="btn  btn-style" type="submit">
+                <button
+                  class="btn  btn-style"
+                  type="submit"
+                  onClick={navigateToSignUpPage}
+                >
                   Sign Up
                 </button>
                 <button class="btn  btn-style btn-style-border" type="submit">
