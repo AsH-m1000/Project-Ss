@@ -1,12 +1,26 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import SignUpPage from "../src/SignUpPage";
+import { UserAuth } from "./context/AuthContext";
 
-const Navbar = ({ navigation }) => {
-  const [show, setShow] = useState(false);
+const Navbar = () => {
   const navigate = useNavigate();
+  const { user, logout } = UserAuth();
+  const [show, setShow] = useState(false);
+
+  // const handleLogout = async () => {
+  //   try {
+  //     await logout();
+  //     navigate("Signin");
+  //     console.log("You are logged out");
+  //   } catch (e) {
+  //     console.log(e.message);
+  //   }
+  // };
   const navigateToSignUpPage = () => {
-    navigate("SignUpPage");
+    navigate("signup");
+  };
+  const navigateToSingInPage = () => {
+    navigate("/signin");
   };
 
   return (
@@ -32,11 +46,7 @@ const Navbar = ({ navigation }) => {
             <div class={`collapse navbar-collapse ${show ? "show" : ""}`}>
               <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <NavLink
-                    className="nav-link active"
-                    aria-current="page"
-                    to="/"
-                  >
+                  <NavLink className="nav-link active" aria-current="page">
                     Home
                   </NavLink>
                 </li>
@@ -55,17 +65,29 @@ const Navbar = ({ navigation }) => {
                     Contact
                   </NavLink>
                 </li>
+                <li class="nav-item">
+                  <NavLink className="nav-link" to="/signup">
+                    signup
+                  </NavLink>
+                </li>
               </ul>
               <form class="d-flex">
-                <button
+                {/* <button
                   class="btn  btn-style"
                   type="submit"
                   onClick={navigateToSignUpPage}
                 >
                   Sign Up
-                </button>
-                <button class="btn  btn-style btn-style-border" type="submit">
+                </button> */}
+                {/* <button class="btn  btn-style btn-style-border" type="submit">
                   Log in
+                </button> */}
+                <button
+                  class="btn  btn-style btn-style-border"
+                  type="submit"
+                  onClick={navigateToSingInPage}
+                >
+                  Log Out
                 </button>
               </form>
             </div>
